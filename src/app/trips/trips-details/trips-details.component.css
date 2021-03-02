@@ -1,0 +1,57 @@
+.star {
+      
+    font-size: 40px;
+    color: #b9c1cc;
+  }
+  .filled {
+    color: gold;
+  }
+  ngb-rating{
+      margin: 50px;
+  }
+  ngb-rating:focus {
+    outline: none;
+  }
+h1{
+    text-align: center;
+}
+.flex{
+    display: grid;
+    margin: 100px;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    justify-items: center;
+}
+.imgHolder{
+    width: 75%;
+}
+img{
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 2px 2px 2px black;
+}
+.content{
+    text-align: center;
+    font-size: large;
+    color: white;
+    font-size: 25px;
+}
+@media (max-width: 800px){
+    .flex{
+      grid-template-columns: 100%;
+    }
+  }
+  .plus{
+      width: 100%;
+      margin-bottom: 15px;
+  }
+  .plusButton{
+      height: 50px;
+  }
+  .minus{
+      width: 100%;
+  }
+  .lowPlaces{
+      color: red;
+      font-size: 30px;
+}

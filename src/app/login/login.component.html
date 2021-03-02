@@ -1,0 +1,18 @@
+<div class="flex">
+<form>
+    <label>
+      E-mail:<br>
+      <input type="email" [(ngModel)]="email" name="email">
+    </label><br>
+    <div *ngIf="wrongData">
+    <div class="alert alert-danger">
+      Podano błędne dane
+    </div>
+  </div>
+    <label>
+      Hasło:<br>
+      <input type="password" [(ngModel)]="password" name="password">
+    </label><br>
+    <button type="button" (click)="login()" class="btn btn-primary">Zaloguj</button>
+  </form>
+</div>

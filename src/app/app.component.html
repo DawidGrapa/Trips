@@ -1,0 +1,22 @@
+<nav>
+  <ul>
+    <div *ngIf="isLoggedIn; else showLogin">
+      <li><a routerLink="/trips" routerLinkActive="active">Główna</a></li>
+      <li><a routerLink="/new" routerLinkActive="active">Dodaj nową wycieczkę</a></li>
+      <li><a routerLink="/cart" routerLinkActive="active">Zobacz swój koszyk</a></li>
+    
+     <li style="float: right;margin-top:20px;margin-right:30px"><a routerLink="/" (click)="signOut()">Wyloguj</a></li>
+     <li style="float: right; margin-right: 30px;font-size:large;font-weight:bold;color:white;margin-top:20px">Witaj, {{userName}} </li> 
+
+    </div>
+    <ng-template #showLogin>
+      <li><a routerLink="/login" routerLinkActive="active">Zaloguj</a></li>
+      <li><a routerLink="/register" routerLinkActive="active">Zarejestruj</a></li>
+      <li><a routerLink="/persistence" routerLinkActive="active">Persistence</a></li>
+    </ng-template>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+
+

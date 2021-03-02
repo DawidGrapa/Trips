@@ -1,0 +1,14 @@
+.flex{
+    display: flex;
+    justify-content: center;
+}
+*{
+    text-align: center;
+}
+button{
+    margin: 30px;
+    background-color: aqua;
+    font-weight: bold;
+    color: black;
+    border: 1px solid white;
+}

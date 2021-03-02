@@ -1,0 +1,10 @@
+.flex{
+    display: flex;
+    justify-content: center;
+}
+*{
+    text-align: center;
+}
+label{
+    margin: 20px;
+}

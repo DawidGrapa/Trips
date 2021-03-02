@@ -1,0 +1,27 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+li {
+  display: inline-block;
+  margin: 10px;
+}
+ul {
+  list-style-type: none;
+  background-color: rgba(0, 0, 0, 0.336) ;
+  border-radius: 50px;
+  height: 70px;
+}
+.active {
+  color: rgb(0, 174, 255);
+  font-size: 2em;
+}
+@media (max-width: 800px){
+  ul{
+    height:140px;
+    font-size: 15px;
+  }
+  h1{
+    font-size: 15px;
+  }
+}

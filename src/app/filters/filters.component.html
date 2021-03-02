@@ -1,0 +1,51 @@
+<h1>Filters: </h1>
+<div class="filters">
+    <div class="part">
+        <h2>Select Country: </h2>
+        <ul>
+            <li *ngFor="let country of countriesToShow">
+              <input name={{country}} type="checkbox" style="margin-right: 20px;" name={{country}} (change)="changeCountries($event)">{{country}}
+            </li>
+          </ul>
+    </div >
+    <div class="part">
+        <h2>Select Price: </h2>
+        <p>Min Price: </p>
+        <input class="suwak" type="range" min={{minPrice}} max={{maxPrice}} value={{minPrice}} (change)="priceMinChanged($event)">
+        <div class="prices">
+            <p class="minPrice">{{minPrice}}</p>
+            <p style="text-align:center; color:red" *ngIf="chosenMinPrice!=-1" class="midPrice">{{chosenMinPrice}}</p>
+            <p class="maxPrice">{{maxPrice}}</p>
+        </div>
+    
+    
+        <p>Max Price: </p>
+        <input class="suwak" type="range" min={{minPrice}} max={{maxPrice}} value={{maxPrice}} (change)="priceMaxChanged($event)">
+        <div class="prices">
+            <p  class="minPrice">{{minPrice}}</p>
+            <p style="text-align:center; color: red" *ngIf="chosenMaxPrice!=-1" class="midPrice">{{chosenMaxPrice}}</p>
+            <p class="maxPrice" >{{maxPrice}}</p>
+        </div>
+        <p *ngIf="chosenMaxPrice < chosenMinPrice" style="color: red; text-align:center">Max Price must be greater than Min Price..</p>
+    </div>
+    <div class="part">
+    <h2>Select rate: </h2>
+    <div style="display: flex; justify-content:center">
+    <ngb-rating  (rateChange)="rateChange($event)">
+        <ng-template let-fill="fill" let-index="index">
+          <span class="star" [class.filled]="fill === 100">&#9733;</span>
+        </ng-template>
+    </ngb-rating>  
+    </div>
+    <button (click)="resetRate()" style="align-self: center;">Reset Rate</button>
+    </div>
+    <div class="part">
+        <h2>Select date: </h2>
+        <div style="display: flex; justify-content:center;flex-wrap:wrap;flex-direction: column;">
+        <p>Start Date</p>
+        <input style="margin-bottom: 20px;" type="date" min="{{todayDate | date:'yyyy-MM-dd'}}" (change)="startDateChanged($event)">
+        <p>End Date</p>
+        <input type="date" min="{{chosenMinDate | date:'yyyy-MM-dd'}}" (change)="endDateChanged($event)">
+        </div>
+      </div>
+</div>

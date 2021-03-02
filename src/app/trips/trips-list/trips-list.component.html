@@ -1,0 +1,35 @@
+<div class="filters">
+    <app-filters [minPrice]="minPrice" [maxPrice]="maxPrice" [trips]="trips" (rate)="receiveRate($event)" (minDate)="receiveMinDate($event)" (maxDate)="receiveMaxDate($event)" 
+    (maxPriceEmit)="receiveMaxPrice($event)" (minPriceEmit)="receiveMinPrice($event)" (countriesEmit)="receiveCountries($event)"></app-filters>
+</div>
+<router-outlet></router-outlet>
+
+<div class="flex-container">
+  <ng-container *ngFor="let trip of trips; let i = index">
+    <div class="trip"    [class.maxPrice]="trip.price==maxPrice" [class.minPrice]="trip.price==minPrice" *ngIf="filterValidation(i)">
+    
+    <div class = "dataContent">
+      <img src={{trip.img_link}}> 
+      <div >
+        <button style="background-color: red; color:aliceblue; width:fit-content" (click)=remove(i)>X</button>
+      </div>
+    </div>
+    
+      <div style="text-align: center;">
+      <p class="tripName">
+        {{trip.name.toUpperCase()}}
+      </p>
+      
+      <p class="tripInfo">
+        Destination: {{trip.country.toUpperCase()}}<br>
+        Price: {{trip.price}}$<br>
+      </p>
+     
+      <button style="margin-bottom: 20px; color:rgb(255, 0, 0)" mat-raised-button routerLink="/tripdetails/{{trip.name}}" color='accent' routerLinkActive='active'>Details</button>
+      
+    
+     
+    </div>
+    </div>
+  </ng-container>
+</div>

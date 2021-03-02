@@ -1,0 +1,7 @@
+<h1>Your cart:</h1>
+<div *ngFor="let cartItem of cartItems; let i = index">
+    <div *ngIf="cartItem.count > 0">
+      <p style="color: white;"> ---- {{cartItem.name.toUpperCase()}} in the amount of     {{cartItem.count}} ----</p>
+    </div>
+  </div>
+  <p id="total">Total sum: {{getSum()}}</p>

@@ -1,0 +1,25 @@
+
+<h1 *ngIf="trip!=null">{{trip.name}}</h1>
+<div class="flex">
+<div class="imgHolder">
+    <img src="{{trip.img_link}}" alt="zdjecie">
+</div>
+<div class="content">
+    <ngb-rating [(rate)]="trip.rate" (rateChange)="updateRating($event)">
+        <ng-template let-fill="fill" let-index="index">
+          <span class="star" [class.filled]="fill === 100">&#9733;</span>
+        </ng-template>
+      </ngb-rating>
+      <p >From {{trip.start_date}}  to  {{trip.end_date}}</p><br>
+      <p>Destination: {{trip.country}}</p>
+          <p>Price: {{trip.price}}$</p>
+          <p class="capacity" [class.lowPlaces]="trip.capacity-participants<3">Taken places: {{participants}} /{{trip.capacity}}</p><br>
+          <p>{{trip.description}}</p><br>
+          <div class="button-panel">
+              <div class="plusButton">
+            <button *ngIf="participants < trip.capacity"(click)="addParticipant()" class="plus">+</button>
+        </div>
+            <button *ngIf="participants > 0" (click)="removeParticipant()" class="minus">-</button>
+          </div>
+</div>
+</div>

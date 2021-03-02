@@ -1,0 +1,37 @@
+<div class="form">
+    <form [formGroup]="modelForm" (ngSubmit)="submit(modelForm)">
+      <label>Trip Name</label><br>
+      <input formControlName="name" placeholder="Eter your new tour's name"><br>
+      <p *ngIf = "nameValidation(modelForm)">Invalid Name</p>
+  
+      <label>Destiantion</label><br>
+      <input  formControlName="country" placeholder="Tour's destination.."><br>
+      <p *ngIf = "countryValidation(modelForm)">Invalid Country</p>
+  
+      <label>Start date</label><br>
+      <input type="date" formControlName="start_date" min="{{todayDate | date:'yyyy-MM-dd'}}"><br>
+      <p *ngIf = "startDateValidation(modelForm)">This field is required</p>
+  
+      <label>End date</label><br>
+      <input type="date" formControlName="end_date" min="{{modelForm.value.start_date | date:'yyyy-MM-dd'}}"><br>
+      <p *ngIf = "endDateValidation(modelForm)"></p>
+  
+      <label>Price</label><br>
+      <input formControlName="price" placeholder="Tour's price.."><br>
+      <p *ngIf = "priceValidation(modelForm)">Invalid price</p>
+  
+      <label>Capacity</label><br>
+      <input formControlName="capacity" placeholder="Tour's capacity.."><br>
+      <p *ngIf = "capacityValidation(modelForm)">Invalid capacity</p>
+  
+      <label>Description</label><br>
+      <input formControlName="description" placeholder="Tour's description.."><br>
+      <p *ngIf = "descriptionValidation(modelForm)">Type some descripion</p>
+  
+      <label>Img Path</label><br>
+      <input formControlName="img_link" placeholder="Tour's image's path.."><br>
+      <p *ngIf = "imgLinkValidation(modelForm)">This field is required</p>
+
+      <button type="submit" class="submit">Add tour</button>
+     </form>
+  </div>
